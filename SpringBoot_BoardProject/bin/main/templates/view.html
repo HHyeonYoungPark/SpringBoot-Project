@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>게시글 상세보기</title>
+		<style>
+			#wrap{
+			width:1280px;
+			margin: 0 auto;
+			}
+			
+			table{
+				width: 100%;	
+				border-collapse: collapse;
+			}
+		
+			th,td{
+				border: 1px solid #000;	
+			}
+			
+			td:nth-child(1){
+			width: 70px;
+			}
+			
+			#btn-wrap{
+				display: flex;
+				justify-content: space-between;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<h1>게시물 상세보기</h1>			
+			<table>
+				<tr>
+					<td>번호</td>
+					<td><span th:text="${dto.idx}" /></td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td><span th:text="${dto.title}" /></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td><span th:text="${dto.writer}" /></td>
+				</tr>
+				<tr>
+					<td>등록일</td>
+					<td><span th:text="${dto.regdate}" /></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><span th:text="${dto.content}" /></td>
+				</tr>
+			</table>
+			<div id="btn-wrap">
+				<div id="btn-left">
+					<a href="/">목록으로</a>
+				</div>
+				<div id="btn-right">
+					<a th:href="@{selectOne(idx=${dto.idx})}">수정</span></a>
+					<a th:href="@{delete(idx=${dto.idx})}">삭제</span></a>   
+				</div>					 
+			</div>
+		</div>
+</body>
+</html>	

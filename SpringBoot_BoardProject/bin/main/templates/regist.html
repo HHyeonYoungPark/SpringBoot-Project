@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>회원가입</title>
+		<style>		
+			#wrap h1{
+				text-align: center;
+			}
+			table{		
+				width:500px;
+				margin: 0 auto;		
+				border-collapse: collapse;
+				
+			}
+			tr{
+				height: 40px;
+			}
+			td{
+				border: 1px solid black;
+			}
+			td input{
+				padding: 5px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>	
+		<div id="wrap">
+			<h1>회원가입</h1>
+			<form action="registProc" method="post">
+				<table>
+					<tr>
+						<td>아이디</td>
+						<td>
+							<input type="text" name="id" id="id" required>
+							<input type="button" value="아이디 중복체크" onclick="idchk()">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							아이디 중복체크를 해주세요.
+						</span>
+						</td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" name="pw" required></td>
+					</tr>
+					<tr>
+						<td>비밀번호 확인</td>
+						<td><input type="password" required></td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td><input type="text" name="username" required></td>
+					</tr>
+					<tr>
+						<td>전화번호</td>
+						<td><input type="text" name="phone" required></td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td><input type="text" name="email" required></td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: center;">
+							<input type="button" value="돌아가기" onclick="history.back()">
+							<input type="submit" value="회원가입">
+						</td>			
+					</tr>
+				</table>
+			</form>
+		</div>
+		
+		<script>
+			function idchk(){
+				var id = document.getElementById("id").value;
+				if(id.trim().length < 5){
+					alert("아이디를 5자리 이상 입력하세요!")
+				}else if(id.indexOf(" ") != -1){
+					alert("아이디에는 공백이 들어갈 수 없습니다!")
+				}else{
+					location.href="idcheck?id="+id;	
+				}
+			}
+		</script>
+	</body>
+</html>

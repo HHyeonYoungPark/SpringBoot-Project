@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	</head>
+	<body>
+		<form action="checkPw" method="post">
+			비밀번호 : <input type="text" name="pw">
+					 <input type="hidden" name="idx" th:value="${param.idx}">
+					 <input type="submit" value="확인">
+		</form>		
+		<span th:text="${result}"></span>
+	</body>
+</html>
