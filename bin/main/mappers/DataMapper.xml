@@ -23,7 +23,7 @@
 	</delete>
 
 	<select id="selectDataAll" resultType="com.example.demo.dto.BootDto">
-		SELECT * FROM bootboard ORDER BY idx DESC;
+		SELECT * FROM bootboard ORDER BY idx DESC LIMIT 0,10
 	</select>
 
 	<select id="selectDataCount"  resultType="int">

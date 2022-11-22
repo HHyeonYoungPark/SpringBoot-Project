@@ -2,106 +2,130 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>자유게시판</title>
-		<style>
-			#wrap{
-				width: 1280px;
-				border: 1px solid #ccc;
-				margin: 0 auto;
-				display: flex;
-				justify-content: space-between;
-			}
-			#wrap div{
-				height: 600px;
-			}
-			#wrap div:first-child { /*게시판*/
-				width: 75%;
-			}
-			#wrap div:last-child { /*로그인*/
-				width: 25%;
-				border-left: 1px solid #ccc;
-			}
-			#wrap div h1{
-				text-align: center;
-			}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/list.css">
+		<link rel="stylesheet" type="text/css" href="css/basic.css">
+		<style>			
 			
-			table{
-				width: 100%;
-				border-collapse: collapse;
-			}
-			tr{
-				height: 40px;
-			}
-			
-			th, td{
-				border: 1px solid #ccc;
-			}
-			
-			#wrap th:nth-child(1){
-				width: 5%
-			}
-			#wrap th:nth-child(2){
-				width: 65%
-			}
-			#wrap th:nth-child(3){
-				width: 15%
-			}	
+		
 		</style>
 	</head>
-	<body>
-		<div id="wrap">
-			<div>
-				<h1>자유게시판</h1>
-				<table>		
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>등록일</th>
-					</tr>										
-					<tr  th:each="dto:${data}">
-						<td><span th:text="${dto.idx}"></span></td>
+	<body>		
+		<div class="container">
+		  <div th:replace="fragments/layout :: nav" />
+		  	<div class="content-wrap">	
+		      <div class="table-List">
+		        <h1>자유 게시판</h1>
+		        <div class="table-List-top">
+		          <div class="top-right">
+		            <div class="search-wrap">
+		                <div class="search">
+		                  <select
+		                    id="sel"
+		                    class="sel"
+		                    name="selSearch2"
+		                    onchange="selSearch2()"
+		                  >
+		                    <option value="">선택하세요</option>
+		                    <option value="title">제목</option>
+		                    <option value="username">작성자</option>
+		                    <option value="content">내용</option>
+		                    <option value="regdate">등록일</option>
+		                  </select>
+		                  <input
+		                    type="text"
+		                    id="search"
+		                    class="search"
+		                    name="search"
+		                  />
+		                  <input type="submit" value="검색" class="searchBtn" />
+		                </div>
+		            </div>
+		          </div>
+		          <div class="top-left" th:if="${session.logined != null}">
+		            <a href="writePage">
+		              <button class="addBtn">
+		                <i class="fa-solid fa-pen-to-square"></i>글쓰기
+		              </button>
+		            </a>
+		          </div>
+		        </div>
+		        <div class="tbl-wrap">
+		          <table>
+		            <tr>
+		              <td>번호</td>
+		              <td>제목</td>
+		              <td>작성자</td>
+		              <td>등록일</td>
+		            </tr>
+	
+		            <tr  th:each="dto:${data}">              
+		               <td><span th:text="${dto.idx}"></span></td>
+				       <td class="title"><a th:href="@{viewData(idx=${dto.idx})}"><span th:text="${dto.title}"></span></a></td>
+				       <td><span th:text="${dto.writer}"></span></td>
+				       <td><span th:text="${dto.regdate}"></span></td>
+		            </tr>
+		          </table>
+		        </div>
+		      </div>
+		  	  <div class="login-wrap">
+			      <div class="logon-box" th:if="${session.logined == null}">
+					<form action="login" method="post">
+						<h1>로그인</h1>
+							<table>
+								<tr>
+									<td>아이디</td>
+									<td><input type="text" name="id" /></td>
+								</tr>
+								<tr>
+									<td>비밀번호</td>
+									<td><input type="password" name="pw" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align: center">
+										<input type="submit" value="로그인" onclick="login()"/>
+										<input type="button" value="회원가입" onclick="location.href='regist'"/>
+									</td>	
+								</tr>
+							</table>
+						</form>	
+					</div>
 						
-			          	<td><a th:href="@{viewData(idx=${dto.idx})}"><span th:text="${dto.title}"></span></a></td>
-			          	<td><span th:text="${dto.writer}"></span></td>
-			          	<td><span th:text="${dto.regdate}"></span></td>
-					</tr>					
-				</table>
-				<span th:if="${session.logined != null}"><a href="writePage">글쓰기</a></span>					
-				<a href="boardlist.jsp">더보기</a>							
-			</div>		
-			<div th:if="${session.logined == null}">
-				<form action="login" method="post">
-				로그인값이 없으면 나오는 부분
-					<table>
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="id" /></td>
-					</tr>
-					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="pw" /></td>
-					</tr>
-					<tr>
-						<td colspan="2" style="text-align: center">
-							<input type="submit" value="로그인" onclick="login()"/>
-							<input type="button" value="회원가입" onclick="location.href='regist'"/>
-						</td>	
-					</tr>
-				</table>
-				</form>	
-			</div>
-			
-			<div th:if="${session.logined != null}">
-				로그인값이 있으면 나오는 부분<br>
-				<span th:text="${session.logined.getId()}"></span>님 반갑습니다.<br>			
-				<a href="logout">로그아웃</a>		
-			</div>
-		</div>	
+					<div class="logon-box" th:if="${session.logined != null}">
+						<span th:text="${session.logined.getId()}"></span>님 반갑습니다.<br>			
+						<a href="logout">로그아웃</a>		
+					</div>
+					<div class="banner">
+						<div id="showbox">
+					        <div id="movebox">
+					            <img src="/images/banner3.JPG">
+					            <img src="/images/banner4.JPG">
+					            <img src="/images/banner5.JPG">
+					        </div>        
+					    </div>
+					</div>
+				</div>
+		  	</div>				
+	      <div th:replace="fragments/layout :: footer" />	
+	    </div>		
+	    
+	    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		    <script>
+		        $(document).ready(function(){
 		
-		<script th:inline="javascript">   		    
-		    
+			
+			// 자동 슬라이드 1000=1초
+			setInterval(function(){
+		                $("#movebox").animate({
+		                    left: - $("#movebox img").eq(0).width()
+		                },500,function(){// 콜백함수, animate 작동후 작동
+		                    let tmpimg = $("#movebox img").eq(0).detach();
+		                    $("#movebox").css("left","0");
+		                    $("#movebox").append(tmpimg);
+		                });
+		            },3000);	    
+		     });            
 		</script>
-		
-			
 	</body>
 </html>

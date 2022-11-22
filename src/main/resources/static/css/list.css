@@ -1,0 +1,223 @@
+			
+			.content-wrap{
+				display: flex;
+				justify-content: space-between;
+				margin: 50px 0;
+				padding: 0 190px;
+			}
+			
+			.table-List {
+			  width: 1200px;
+			  display: inline-block;
+			}
+			
+			.login-wrap{
+				border: 1px solid #d1d1d1;
+				width: 300px;
+				display: inline-block;
+			}
+			
+			.logon-box{
+
+			} 
+			
+			.table-List a{
+			  text-decoration: none;
+			  color: rgba(0, 0, 0, 0.8);
+			}
+			
+			.table-List a:hover{
+			  color: rgba(0, 0, 0, 0.5);
+			  text-decoration: underline;
+			}
+		
+			
+			.table-List h1 {
+			  display: flex;
+			  justify-content: center;
+			  margin-bottom: 20px;
+			}
+			
+			.addBtn {
+			  border: 1px solid #d1d1d1;
+			  border-radius: 3px;
+			  background-color: #f1f1f1;
+			  cursor: pointer;
+			  font-size: 15px;
+			  padding: 7px;
+			}
+			
+			.addBtn:hover {
+			  background-color: #f9f9f9;
+			}
+			
+			.search select,
+			.search input,
+			.gradeSel {
+			  border: 1px solid #ccc;
+			  border-radius: 3px;
+			  padding: 7px;
+			}
+			
+			.searchBtn {
+			  background-color: steelblue;
+			  color: #fff;
+			  border-radius: 3px;
+			  padding: 6px;
+			  cursor: pointer;
+			}
+			
+			.table-List-top {
+			  display: flex;
+			  flex-direction: row;
+			  justify-content: space-between;
+			  margin: 10px;
+			}
+			
+			.tbl-wrap table {
+			  width: 100%;
+			  border-collapse: collapse;
+			}
+			.tbl-wrap tr {
+			  height: 50px;
+			  border-bottom: 1px solid #ccc;
+			  text-align: center;
+			  background-color: #fff;
+			  color: #000;
+			}
+			
+			.tbl-wrap tr:hover {
+			  background-color: #f9f9f9;
+			}
+			
+			.tbl-wrap tr:nth-child(1) {
+			  background-color: steelblue;
+			  color: #f1f1f1;
+			}
+			
+			.tbl-wrap td.title {
+			  display: flex;
+			  text-align: left;
+			  padding-top: 15px;
+			}
+			
+			.upDelBtn {
+			  border: 1px solid #d1d1d1;
+			  border-radius: 3px;
+			  background-color: #f1f1f1;
+			  padding: 5px;
+			  cursor: pointer;
+			}
+			
+			.upDelBtn:hover {
+			  background-color: #f9f9f9;
+			}	
+					
+			
+			/* banner */
+	        *{
+	            padding: 0;
+	            margin: 0;
+	        }
+	        
+	        #showbox{
+	            width: 300px;
+	            height: 400px;
+	            margin: 0 auto;
+	            position: relative;
+				overflow: hidden;
+	        }
+	        
+	        #movebox{
+	            width: 900px;
+	            height: 400px;
+	            display: flex;
+	            position: absolute;
+	        }
+	        
+	        #movebox img{
+	            width: 300px;
+	            height: 400px;
+	        }
+		
+			
+			/* nav*/
+		
+			ul li {
+			  list-style: none;
+			}
+			
+			input,
+			button,
+			select {
+			  border: 0;
+			  outline: 0;
+			  background-color: transparent;
+			}
+			
+			.nav-wrap {
+			  background-color: rgba(0, 0, 0, 0.7);
+			  display: flex;
+			  flex-direction: row;
+			  justify-content: space-between;
+			  height: 70px;
+			  align-items: center;
+			  padding: 0 30px;
+			}
+			
+			.nav-wrap h2 a {
+			  color: aliceblue;
+			}
+			
+			.nav-menu ul {
+			  display: flex;
+			  flex-direction: row;
+			}
+			
+			.nav-menu ul li a {
+			  color: aliceblue;
+			  margin-left: 50px;
+			}
+					
+			/* footer */
+			.footer-wrap {
+			  background-color: #4a4a4a;
+			  height: 200px;
+			  display: flex;
+			  justify-content: space-between;
+			  align-items: center;
+			  padding: 0 200px;
+			}
+			.footer-wrap a{
+				color: #d1d1d1;
+				text-decoration: none;
+			}
+			
+			.footer-left .logo {
+			  font-family: 'Noto Sans KR', sans-serif;
+			  font-size: 50px;
+			  color: #d1d1d1;
+			}
+			
+			.coryright-info {
+			  padding-bottom: 20px;
+			}
+			
+			.coryright-info a {
+			  color: #e1e1e1;
+			  font-size: 15px;
+			  margin-right: 50px;
+			}
+			
+			.coryright-info a:hover {
+			  color: steelblue;
+			}
+			
+			.coryright-addr p {
+			  color: #e1e1e1;
+			  font-size: 14px;
+			}
+			
+			.footer-right {
+			  padding: 0 28px;
+			}

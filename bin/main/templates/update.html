@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 	<head>
+		<title>게시글 수정</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" type="text/css" href="css/basic.css">
 	</head>
 	<body>
 		<form action="updateProc" method="post">
@@ -11,5 +14,47 @@
 			<textarea name="content" th:text="${dto.content}"></textarea><br>
 			<input type="submit" value="수정">
 		</form>
+		
+		
+		
+		
+		<div class="container">
+	      <div class="addPost-wrap">
+	        <div class="header">
+	          <h1>게시글 수정</h1>
+	          <form action="updateProc" method="post" autocomplete="off">
+	            <div class="addPost">
+	              <div class="title">
+	                <input type="hidden" name="idx" th:value="${dto.idx}" readonly />
+	                <label>제목</label>
+	                <input type="text" name="title" th:value="${dto.title}" placeholder="제목" required />
+	              </div>
+	              <div class="writer">
+	                <label>작성자</label>
+	                <input type="text" name="writer" th:value="${dto.writer}"readonly placeholder="작성자" required />
+	              </div>
+	              <div class="ta">
+	              <textarea name="content" th:text="${dto.content}" cols="130" rows="30" required></textarea>
+	              </div>
+	              <div class="btn-wrap">
+	                <a href="/">
+	                  <button class="listBtn">
+	                    <i class="fa-solid fa-list"></i>목록
+	                  </button>
+	                </a>
+	                 <button type="submit" class="addBtn">
+	                 <i class="fa-solid fa-pen-to-square"></i>수정
+	                 </button>
+	              </div>
+	            </div>
+	          </form>
+	        </div>
+	      </div>
+	    </div>
+		
+		
+		
+		
+		
 	</body>
 </html>

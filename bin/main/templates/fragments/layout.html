@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/layout.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/layout.css}">
+	</head>
+	<body>
+		<div class="nav-wrap" th:fragment="nav">
+		  <h2><a href="/">자유게시판</a></h2>
+		  <div class="nav-menu">
+		    <ul>
+		      <li><a href="/">버그신고</a></li>
+		      <li><a href="/">인기글</a></li>
+		      <li><a href="/">FAQ</a></li>
+		      <li><a href="/">자유게시판</a></li>
+		    </ul>
+		  </div>
+		</div>
+		
+		<div th:fragment="footer">
+		<footer class="footer-wrap" th:fragment="footer">
+	      <div class="footer-left">        
+	          <h1 class="logo"><a href="/">자유게시판</a></h1>
+	      </div>
+	      <div class="footer-center">
+	        <div class="coryright-info">
+	          <a href="#">이용약관</a>
+	          <a href="#">개인정보취급방침</a>
+	          <a href="#">이메일무단수집거부</a>
+	          <a href="#">사이트맵</a>
+	        </div>
+	        <div class="coryright-addr">
+	          <p>
+	            (36351) 부산광역시 해운대구 우동
+	            본사 [전화] 051-222-1234,
+	          </p>
+	          <p>고객센터 [전화] 031-223-4581,</p>
+	          <p>고객센터 [전화] 031-223-4311</p>
+	          <p style="color: '#a7a2a4'">
+	            Copyright(c) 2022 The province of Hyeonyoung. All rights
+	            reserved.
+	          </p>
+	        </div>
+	      </div>
+	      <div class="footer-right">
+	        <img src="/images/footerLogo.png" />
+	      </div>
+	    </footer>
+	    </div>
+	</body>
+</html>

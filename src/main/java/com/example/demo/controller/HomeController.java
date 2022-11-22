@@ -35,6 +35,8 @@ public class HomeController {
 		List<BootDto> list = dao.selectDataAll();
 		model.addAttribute("data",list);		
 		model.addAttribute("cnt", dao.selectDataCount());
+		
+		
 				
 		return "list";// list.html 파일임
 	}

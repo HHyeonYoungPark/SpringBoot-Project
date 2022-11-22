@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
-	<head></head>
+	<head>
+		<title>게시글 작성</title>
+		<style>
+			
+		</style>
+	</head>
 	<body>
 		<form action="writeProc" method="post">
 			제목 : <input type="text" name="title"><br>			
-			글쓴이 : <input type="text" name="writer" th:value="${session.logined}" readonly><br>
+			글쓴이 : <input type="text" name="writer" th:value="${session.logined.getId()}" readonly><br>
 			내용<br>
 			<textarea name="content"></textarea><br>
 			<input type="submit" value="입력">
