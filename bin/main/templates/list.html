@@ -75,17 +75,15 @@
 						<h1>로그인</h1>
 							<table>
 								<tr>
-									<td>아이디</td>
-									<td><input type="text" name="id" /></td>
+									<td><input type="text" name="id" placeholder="아이디" /></td>
 								</tr>
 								<tr>
-									<td>비밀번호</td>
-									<td><input type="password" name="pw" /></td>
+									<td><input type="password" name="pw" placeholder="비밀번호" /></td>
 								</tr>
 								<tr>
 									<td colspan="2" style="text-align: center">
-										<input type="submit" value="로그인" onclick="login()"/>
-										<input type="button" value="회원가입" onclick="location.href='regist'"/>
+										<input type="submit" value="로그인" onclick="login()"  id="login-btn"/>
+										<input type="button" value="회원가입" onclick="location.href='regist'"  id="login-btn"/>
 									</td>	
 								</tr>
 							</table>
@@ -96,7 +94,7 @@
 						<span th:text="${session.logined.getId()}"></span>님 반갑습니다.<br>			
 						<a href="logout">로그아웃</a>		
 					</div>
-					<div class="banner">
+					<div id="banner">
 						<div id="showbox">
 					        <div id="movebox">
 					            <img src="/images/banner3.JPG">

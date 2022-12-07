@@ -9,12 +9,13 @@
 	</head>
 	<body>		
 		<div class="container">
+		  <div th:replace="fragments/layout :: nav" />
 	      <div class="postView-wrap">
 	        <h1>게시글 상세보기</h1>
 	        <div class="table-wrap">
 	          <table>
 	            <tr>
-	              <td colspan="2"><span th:text="${dto.title}" /></td>
+	              <td colspan="2"><span style="font-size: 25px;" th:text="${dto.title}" /></td>
 	            </tr>
 	            <tr>
 	              <td class="firTd">글번호</td>
@@ -28,10 +29,10 @@
 	              <td class="secTd"><span th:text="${dto.regdate}" /></td>
 	            </tr>
 	          </table>
-	        </div>
+	        </div>	        
 	        <div class="content-wrap">
-	            <div class="content">
-	                <textarea cols="169" rows="20" readonly><span th:text="${dto.content}" /></textarea>  
+	            <div class="content">	            	
+	                <textarea cols="169" rows="20" th:text="${dto.content}" readonly></textarea>  
 	            </div>
 	        </div>
 	        <div class="btn-wrap">
@@ -56,6 +57,7 @@
 	            </div>
 	          </div>
 	      </div>
+	      <div th:replace="fragments/layout :: footer" />
 	    </div>		
 	</body>
 </html>	

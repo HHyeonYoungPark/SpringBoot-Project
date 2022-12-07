@@ -12,14 +12,40 @@
 			}
 			
 			.login-wrap{
-				border: 1px solid #d1d1d1;
 				width: 300px;
 				display: inline-block;
 			}
 			
 			.logon-box{
-
-			} 
+				display: flex;
+				justify-content: center;
+				border: 1px solid #d1d1d1;
+				margin-bottom: 50px;
+				padding-bottom: 20px;
+			}
+			
+			.logon-box h1{
+				display: flex;
+				justify-content: center;
+				margin: 10px 0;
+			}
+			
+			.logon-box input{
+				border: 1px solid #d1d1d1;
+				padding: 7px;
+			}
+			
+			#login-btn{
+				padding: 7px;
+				margin-top: 15px;
+				cursor: pointer;
+				background-color: rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(0, 0, 0, 0.2);
+			}
+			
+			#login-btn:hover{
+				background-color: rgba(0, 0, 0, 0.05);
+			}
 			
 			.table-List a{
 			  text-decoration: none;
@@ -115,6 +141,7 @@
 					
 			
 			/* banner */
+			 		
 	        *{
 	            padding: 0;
 	            margin: 0;
